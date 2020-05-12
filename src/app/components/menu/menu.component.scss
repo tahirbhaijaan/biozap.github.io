@@ -1,0 +1,182 @@
+$themeColor: rgb(255, 153, 0);
+.overlay {
+    transition: .4s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(#000, .4);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000000000000000000;
+    &--collapsed {
+        transform: translateX(-100%);
+    }
+    &--opened {
+        transform: translateX(0%);
+    }
+    .menu {
+        transform-origin: left;
+        transition: .4s ease-in-out;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60%;
+        height: 100%;
+        background-color: rgba(#000, .8);
+        padding: .4rem;
+        &--collapsed {
+            transform: scaleX(0);
+        }
+        &--opened {
+            transform: scaleX(1);
+        }
+        .header {
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+            border-bottom: 2px solid white;
+            position: relative;
+            @media(max-width: 500px) {
+                font-size: 1.4rem;
+            }
+            
+            @media(max-width: 400px) {
+                font-size: 1.2rem;
+            }
+        }
+        .content {
+            position: relative;
+            overflow: scroll;
+            height: 100%;  
+            width: 100%;
+            padding-bottom: 5rem;    
+            a {
+                position: relative;
+                padding: .4rem .4rem;
+                color: white;
+                background-color: rgba(#fff, .2);
+                margin-top: .4rem;
+                margin-bottom: .4rem;
+                border-radius: .4rem;
+                
+                span {
+                    font-size: .8rem;
+                }
+                &:first-child {
+                    border-radius: 0;
+                    border-bottom: none;
+                    background-color: $themeColor;
+                }
+                text-decoration: none;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                display: block;
+
+                @media(max-width: 500px) {
+                    font-size: 1.4rem;
+                }
+                
+                @media(max-width: 400px) {
+                    font-size: 1.2rem;
+                }
+                &:active {
+                    background-color: rgba(#fff, .5);
+                }
+                &.active {
+                    color: white;
+                    font-size: 1.4rem;
+                    background-color: rgba($themeColor, .8);             
+                }
+            }
+            .device {
+                display: block;
+                width: 100%;
+                padding: .4rem;
+                background-color: rgba(white, .1);
+                margin-bottom: .4rem;
+                .name {
+                    color: white;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .controls {
+                    display: flex;
+                    justify-content: flex-end;
+                    a {
+                        margin-right: .4rem;
+                        background-color: rgba(#000, .4);
+                        font-size: .8rem;
+                        border-radius: 0;
+                        &:active {
+                            background-color: rgba(#fff, .3);
+                        }
+                        &.danger {
+                            color: var(--ion-color-danger);
+                        }
+                        &.success {
+                            color: var(--ion-color-success);
+                        }
+                        &.warning {
+                            color: var(--ion-color-warning);
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+.menu-icon {
+    z-index: 1000000000000000000;
+    position: fixed;
+    top: .5rem;
+    right: .5rem;
+    border: 4rem;
+    background-color: black;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 4rem;
+    transition: .4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1rem rgba(#fff, .4);
+    ion-icon {
+        font-size: 2rem;
+        color: var(--ion-theme-color);
+    }
+}
+.new {
+    text-align: center;
+    color: white;
+    background-color: rgba(#fff, .4);
+}
+.spn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(30%, -30%);
+    height: 1.4rem;
+    width: 1.4rem;
+    font-size: .8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    color: white;
+    border: 1px solid white;
+    background-color: red;
+}
+.moveable {
+    transform: scale(1.3);
+}
