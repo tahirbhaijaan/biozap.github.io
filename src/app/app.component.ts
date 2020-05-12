@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BackendService } from './services/backend.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Biozap-web';
+  authorized = false;
+  constructor(
+    private backend: BackendService
+  ) {
+  }
 }

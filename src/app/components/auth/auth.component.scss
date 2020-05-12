@@ -1,0 +1,47 @@
+$themeColor: rgb(255, 153, 0);
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 4rem $themeColor;
+    background-color: black;
+    .header {
+        background-color: black;
+        width: 100%;
+        color: $themeColor;
+        padding: .4rem;
+        border-bottom: 1px solid $themeColor;
+    }
+    .insub {
+        background-color: black;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        input {
+            border: none;
+            background: rgba($themeColor, .4);
+            padding: .2rem;
+            text-align: center;
+            color: $themeColor;
+        }
+        a {
+            cursor: pointer;
+            color: $themeColor;
+            background: rgba($themeColor, .4);
+            padding: .2rem .8rem;
+            margin-top: .2rem;
+            border-radius: .2rem;
+            &:active {
+                background: rgba($themeColor, .6);
+            }
+        }
+    }
+    .error {
+        color: red;
+        font-size: .6rem;
+        padding: .2rem;
+    }
+}

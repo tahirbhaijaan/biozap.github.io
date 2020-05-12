@@ -1,0 +1,11 @@
+<div class="content-centered full fixed top left" >
+    <div class="content">
+        <div class="header content-centered">Enter passkey to continue</div>
+        <div class="insub">
+            <input type="password" [(ngModel)]="password">
+            <div class="error" *ngIf="erronous">* Unauthorized access</div>
+            <a (click)="submit()">submit</a>
+        </div>
+    </div>
+    <app-loader [loading]="loading"></app-loader>
+</div>

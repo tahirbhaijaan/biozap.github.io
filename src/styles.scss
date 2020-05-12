@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.content-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.left {
+    left: 0;
+}
+.left--padding {
+    left: 1rem;
+}
+
+.right {
+    right: 0;
+}
+.right--padding {
+    right: 1rem;
+}
+
+.top {
+    top: 0;
+}
+.top--padding {
+    top: 1rem;
+}
+
+.bottom {
+    bottom: 0;
+}
+.bottom--padding {
+    bottom: 1rem;
+}
