@@ -23,28 +23,31 @@ export class BackendService {
         accessToken: string
       }) => {
         this.adminToken = resp.accessToken;
-        setTimeout(() => {
-          res(resp);
-        }, 3000);
+        res(resp);
       }, error => {
-        setTimeout(() => {
-          rej(error);
-        }, 3000);
+        rej(error);
       });
     });
   }
 
   getCategories() {
     return new Promise((res, rej) => {
-      this.http.post(`${this.adminUrl}/categories`, null, {
-        headers: {
-          token: this.adminToken
-        }
+      this.http.get(`${this.adminUrl}/categories`).subscribe(res, rej);
+    });
+  }
+
+  saveCategory(category) {
+    return new Promise((res, rej) => {
+      this.http.post(`${this.adminUrl}/categories`, {
+        category
       }).subscribe(res, rej);
     });
   }
 
-  saveCategory() {
-
+  tabLength() {
+    return new Promise((res, rej) => {
+      this.http.get(`${this.adminUrl}/tabs`)
+      .subscribe(res, rej);
+    });
   }
 }

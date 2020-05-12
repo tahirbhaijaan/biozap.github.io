@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './components/auth/auth.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FormsModule } from '@angular/forms';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     AuthComponent,
-    LoaderComponent
+    LoaderComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,

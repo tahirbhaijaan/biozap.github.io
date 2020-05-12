@@ -1,0 +1,5 @@
+<div class="scroll-bar">
+    <a *ngFor="let tab of tabs" [class.activated]="tab === activated" (click)="activate(tab)">
+        {{tab}}
+    </a>
+</div>

@@ -1,9 +1,11 @@
 <div class="overlay" [class.overlay--collapsed]="menuCollapsed" [class.overlay--opened]="!menuCollapsed"
     >
+    
     <div class="menu"[class.menu--collapsed]="menuCollapsed" [class.menu--opened]="!menuCollapsed">
         <div class="header">Categories</div>
         <div class="content">
             <a (click)="addNew()" [ngStyle]="{'width': '100%'}" class="new">Add New +</a>
+            <input type="text" [(ngModel)]="catName">
             <div class="spn" *ngIf="loading">
                 <span></span>
                 <span></span>

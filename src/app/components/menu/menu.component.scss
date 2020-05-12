@@ -21,7 +21,7 @@ $themeColor: rgb(255, 153, 0);
         position: absolute;
         left: 0;
         top: 0;
-        width: 60%;
+        width: 30%;
         height: 100%;
         background-color: rgba(#000, .8);
         padding: .4rem;
@@ -54,6 +54,15 @@ $themeColor: rgb(255, 153, 0);
             height: 100%;  
             width: 100%;
             padding-bottom: 5rem;    
+            input {
+                width: 100%;
+                padding: .2rem;
+                background-color: rgba($themeColor, .4);
+                color: $themeColor;
+                text-align: center;
+                border: 2px solid $themeColor;
+                margin-bottom: .4rem;
+            }
             a {
                 position: relative;
                 padding: .4rem .4rem;
@@ -235,4 +244,7 @@ $themeColor: rgb(255, 153, 0);
         transform: scale(0);
         background-color: transparent;
     }
+}
+.cat-add {
+    width: 100%;
 }

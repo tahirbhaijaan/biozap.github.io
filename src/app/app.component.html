@@ -1,2 +1,3 @@
 <app-menu *ngIf="authorized"></app-menu>
 <app-auth *ngIf="!authorized" (approved)="authorized = true"></app-auth>
+<app-tabs *ngIf="authorized"></app-tabs>

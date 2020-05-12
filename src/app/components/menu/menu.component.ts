@@ -8,16 +8,44 @@ import { BackendService } from 'src/app/services/backend.service';
 })
 export class MenuComponent implements OnInit {
   menuCollapsed = true;
-  categories: any;
+  categories = [];
+  catName = '';
+  loading = false;
   constructor(
     private backend: BackendService
   ) { }
 
   async ngOnInit() {
-    setTimeout(() => {
-      this.backend.getCategories()
-      .then(console.log, console.log);
-    }, 5000);
+    this.loading = true;
+    this.backend.getCategories()
+    .then((cats: any) => {
+      this.categories = cats;
+      this.loading = false;
+    })
+    .catch(error => {
+      console.log({
+        error
+      });
+      this.loading = false;
+    });
   }
 
+  addNew() {
+    this.loading = true;
+    if (!this.catName.length) {
+      return;
+    }
+    this.backend.saveCategory(this.catName)
+    .then(() => {
+      this.loading = false;
+      this.categories.push(this.catName.trim().toLowerCase());
+      this.catName = '';
+    })
+    .catch(error => {
+      console.log({
+        error
+      });
+      this.loading = false;
+    });
+  }
 }
