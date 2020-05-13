@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -47,6 +47,13 @@ export class BackendService {
   tabLength() {
     return new Promise((res, rej) => {
       this.http.get(`${this.adminUrl}/tabs`)
+      .subscribe(res, rej);
+    });
+  }
+
+  loadPage(pageNumber) {
+    return new Promise((res, rej) => {
+      this.http.get(`${this.adminUrl}/programs/${pageNumber}`)
       .subscribe(res, rej);
     });
   }

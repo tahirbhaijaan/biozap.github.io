@@ -9,6 +9,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FormsModule } from '@angular/forms';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TabsComponent } from './components/tabs/tabs.component';
     MenuComponent,
     AuthComponent,
     LoaderComponent,
-    TabsComponent
+    TabsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

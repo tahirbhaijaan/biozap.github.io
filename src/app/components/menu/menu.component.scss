@@ -1,6 +1,6 @@
 $themeColor: rgb(255, 153, 0);
 .overlay {
-    transition: .4s ease-in-out;
+    transition: .6s ease-in-out;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,9 +11,11 @@ $themeColor: rgb(255, 153, 0);
     z-index: 1000000000000000000;
     &--collapsed {
         transform: translateX(-100%);
+        opacity: 0;
     }
     &--opened {
         transform: translateX(0%);
+        opacity: 1;
     }
     .menu {
         transform-origin: left;
@@ -21,7 +23,7 @@ $themeColor: rgb(255, 153, 0);
         position: absolute;
         left: 0;
         top: 0;
-        width: 30%;
+        width: max(30%, 15rem);
         height: 100%;
         background-color: rgba(#000, .8);
         padding: .4rem;

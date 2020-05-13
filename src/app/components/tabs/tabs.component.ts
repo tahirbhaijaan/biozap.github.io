@@ -21,6 +21,7 @@ export class TabsComponent implements OnInit {
       for (let i = 0; i < tabs.length; i++) {
         this.tabs.push(i);
       }
+      this.activation.emit(0);
     })
     .catch(error => console.log({
       error
