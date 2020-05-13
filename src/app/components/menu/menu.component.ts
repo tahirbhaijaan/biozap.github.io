@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
@@ -11,6 +11,8 @@ export class MenuComponent implements OnInit {
   categories = [];
   catName = '';
   loading = false;
+
+  @Input() menuLeft = false;
   constructor(
     private backend: BackendService
   ) { }

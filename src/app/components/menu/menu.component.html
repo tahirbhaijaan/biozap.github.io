@@ -19,7 +19,7 @@
         </div>
     </div>
 </div>
-<div class="icon" (click)="menuCollapsed=!menuCollapsed">
+<div class="icon" (click)="menuCollapsed=!menuCollapsed" [ngStyle]="{'left': menuLeft ? '1rem' : undefined, 'right': !menuLeft ? '1rem' : undefined}">
     <span [class.active]="!menuCollapsed"></span>
     <span [class.active]="!menuCollapsed"></span>
     <span [class.active]="!menuCollapsed"></span>

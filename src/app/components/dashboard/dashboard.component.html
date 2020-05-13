@@ -1,14 +1,15 @@
 <div class="full top left fixed">
-    <app-menu></app-menu>
+    <app-menu [menuLeft]="addNew"></app-menu>
     <div class="grid full">
         <div class="table"></div>
         <div class="tab-bar">
             <app-tabs (activation)="loadPage($event)"></app-tabs>
         </div>
         <div class="control">
-            <a class="content-centered full" (click)="update()">Add New</a>
+            <a class="content-centered full" (click)="addNewProgram()">Add New</a>
             <a class="content-centered full" (click)="update()">update</a>
         </div>
     </div>
     <app-loader [loading]="loading" ></app-loader>
+    <app-add-new (closed)="addNew = false" *ngIf="addNew"></app-add-new>
 </div>

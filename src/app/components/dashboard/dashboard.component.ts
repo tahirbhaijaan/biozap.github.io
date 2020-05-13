@@ -9,6 +9,7 @@ import { BackendService } from 'src/app/services/backend.service';
 export class DashboardComponent implements OnInit {
 
   loading = false;
+  addNew = false;
   constructor(
     private backend: BackendService
   ) { }
@@ -35,6 +36,10 @@ export class DashboardComponent implements OnInit {
         error
       });
     });
+  }
+
+  addNewProgram() {
+    this.addNew = true;
   }
 
 }

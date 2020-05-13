@@ -10,6 +10,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { FormsModule } from '@angular/forms';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddNewComponent } from './components/add-new/add-new.component';
+import { CutComponent } from './components/cut/cut.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AuthComponent,
     LoaderComponent,
     TabsComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddNewComponent,
+    CutComponent
   ],
   imports: [
     BrowserModule,
