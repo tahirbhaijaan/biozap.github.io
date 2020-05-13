@@ -10,11 +10,15 @@ export class DashboardComponent implements OnInit {
 
   loading = false;
   addNew = false;
+  collapsed = false;
+  collapser;
+  programs = [];
   constructor(
     private backend: BackendService
   ) { }
 
   ngOnInit() {
+    this.expand();
   }
 
   update() {
@@ -26,10 +30,8 @@ export class DashboardComponent implements OnInit {
 
   loadPage(tab) {
     this.backend.loadPage(tab)
-    .then(content => {
-      console.log({
-        content
-      });
+    .then((content: any) => {
+      this.programs = content;
     })
     .catch(error => {
       console.log({
@@ -40,6 +42,16 @@ export class DashboardComponent implements OnInit {
 
   addNewProgram() {
     this.addNew = true;
+  }
+
+  expand() {
+    this.collapsed = false;
+    try {
+      clearInterval(this.collapser);
+      this.collapser = setInterval(() => this.collapsed = true, 3000);
+    } catch (error) {
+      this.collapser = setInterval(() => this.collapsed = true, 3000);
+    }
   }
 
 }

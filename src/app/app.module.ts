@@ -12,6 +12,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddNewComponent } from './components/add-new/add-new.component';
 import { CutComponent } from './components/cut/cut.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CutComponent } from './components/cut/cut.component';
     TabsComponent,
     DashboardComponent,
     AddNewComponent,
-    CutComponent
+    CutComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

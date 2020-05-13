@@ -1,0 +1,26 @@
+$themeColor: rgb(255, 153, 0);
+.container {
+    background: linear-gradient(to right bottom, red, black);
+    overflow: scroll;
+    padding: 2rem;
+    & > * {
+        text-align: left;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+            background-color: black;
+            border: 1px solid rgb(255, 0, 55);
+            th {
+                padding: .4rem;
+                background-color: rgb(255, 0, 55);
+                color: black;
+            }
+            td {  
+                padding: .4rem;
+                color: white;
+            }
+        }
+    }
+}

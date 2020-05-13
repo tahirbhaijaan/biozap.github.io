@@ -1,0 +1,18 @@
+<div class="container absolute full left top">
+    <table>
+        <tr>
+            <th>S.No.</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Categories</th>
+            <th>Organs</th>
+        </tr>
+        <tr *ngFor="let program of programs">
+            <td>{{program.index}}</td>
+            <td>{{program.name}}</td>
+            <td>{{program.description}}</td>
+            <td>{{program.categories}}</td>
+            <td>{{program.organs}}</td>
+        </tr>
+    </table>
+</div>

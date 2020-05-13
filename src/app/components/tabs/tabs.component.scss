@@ -10,7 +10,8 @@ a {
         margin-right: 4rem;
     }
     &.activated {
-        background: black;
-        color: white;
+        background: white;
+        color: black;
+        font-weight: bold;
     }
 }
