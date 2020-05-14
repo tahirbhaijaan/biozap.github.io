@@ -12,7 +12,7 @@
             <a class="content-centered full" (click)="update()">update</a>
         </div>
     </div>
-    <div class="x round" *ngIf="collapsed" (click)="expand()">
+    <div class="x round" (click)="expand()">
         <div class="caret"></div>
     </div>
     <app-loader [loading]="loading" ></app-loader>

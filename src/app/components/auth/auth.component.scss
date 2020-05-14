@@ -1,4 +1,4 @@
-$themeColor: rgb(255, 153, 0);
+$themeColor: var(--theme-color);
 .content {
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@ $themeColor: rgb(255, 153, 0);
         background-color: black;
         width: 100%;
         color: $themeColor;
-        padding: .4rem;
+        padding: .4rem 2rem;
         border-bottom: 1px solid $themeColor;
     }
     .insub {
@@ -22,10 +22,10 @@ $themeColor: rgb(255, 153, 0);
         flex-direction: column;
         input {
             border: none;
-            background: rgba($themeColor, .4);
+            background-color: $themeColor;
             padding: .2rem;
             text-align: center;
-            color: $themeColor;
+            color: black;
         }
         a {
             cursor: pointer;
@@ -34,7 +34,9 @@ $themeColor: rgb(255, 153, 0);
             padding: .2rem .8rem;
             margin-top: .2rem;
             border-radius: .2rem;
+            border-bottom: 2px solid $themeColor;
             &:active {
+                border: 2px solid $themeColor;
                 background: rgba($themeColor, .6);
             }
         }

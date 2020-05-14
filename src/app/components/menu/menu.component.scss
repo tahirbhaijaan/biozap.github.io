@@ -1,4 +1,4 @@
-$themeColor: rgb(255, 153, 0);
+$themeColor: var(--theme-color);
 .overlay {
     transition: .6s ease-in-out;
     position: fixed;
