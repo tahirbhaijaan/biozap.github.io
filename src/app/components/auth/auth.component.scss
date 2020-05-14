@@ -34,7 +34,7 @@ $themeColor: var(--theme-color);
             padding: .2rem .8rem;
             margin-top: .2rem;
             border-radius: .2rem;
-            border-bottom: 2px solid $themeColor;
+            border: 2px solid $themeColor;
             &:active {
                 border: 2px solid $themeColor;
                 background: rgba($themeColor, .6);

@@ -78,6 +78,7 @@ $themeColor: var(--theme-color);
                     font-size: .8rem;
                 }
                 &:first-child {
+                    cursor: pointer;
                     border-radius: 0;
                     border-bottom: none;
                     background-color: $themeColor;
@@ -157,6 +158,7 @@ $themeColor: var(--theme-color);
     padding: .7rem;
     cursor: pointer;
     &:hover {
+        background-color: $themeColor;
         span {
             background-color: white;
         }

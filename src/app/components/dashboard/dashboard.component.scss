@@ -51,8 +51,11 @@ $themeColor: var(--theme-color);
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;    
+    &:hover {
+        background-color: #fff;
+    }
     .caret {
-        cursor: pointer;
         width: 1rem;
         height: 1rem;
         background-color: $themeColor;
