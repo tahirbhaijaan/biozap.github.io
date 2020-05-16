@@ -1,0 +1,38 @@
+$themeColor: var(--theme-color);
+.chip {
+    position: relative;
+    display: inline-block ;
+    padding: .4rem;
+    border-radius: .4rem;
+    background: $themeColor;
+    margin-bottom: .2rem;
+    margin-right: .4rem;
+    padding-right: 2.4rem;
+    overflow: hidden;
+    border: 1px solid $themeColor;
+    &:hover {
+        a {
+            transform: translateX(0);
+        }
+    }
+    a {
+        cursor: pointer;
+        transition: .4s ease-in-out;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(129, 6, 17);
+        border-top-right-radius: .4rem;
+        border-bottom-right-radius: .4rem;
+        transform: translateX(100%);
+        &:active {
+            background-color: white;
+            color: rgb(129, 6, 17);
+        }
+    }
+}

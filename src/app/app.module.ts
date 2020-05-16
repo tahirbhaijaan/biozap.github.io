@@ -13,6 +13,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddNewComponent } from './components/add-new/add-new.component';
 import { CutComponent } from './components/cut/cut.component';
 import { TableComponent } from './components/table/table.component';
+import { ChipSetComponent } from './components/chip-set/chip-set.component';
+import { SelectComponent } from './components/select/select.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { TableComponent } from './components/table/table.component';
     DashboardComponent,
     AddNewComponent,
     CutComponent,
-    TableComponent
+    TableComponent,
+    ChipSetComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

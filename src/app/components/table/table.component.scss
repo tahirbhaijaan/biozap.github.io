@@ -11,8 +11,18 @@ $themeColor: var(--theme-color);
     }
     table {
         width: 100%;
-        border-collapse: collapse;
         tr {
+            .addNew {
+                padding: .4rem;
+                background-color: rgb(255, 136, 0);
+                color: white;
+                border-radius: .4rem;
+                cursor: pointer;
+                &:active {
+                    background-color: white;
+                    color: $themeColor;
+                }
+            }
             width: 100%;
             .serial {
                 width: 4%;

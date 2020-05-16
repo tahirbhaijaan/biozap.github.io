@@ -58,7 +58,8 @@ export class BackendService {
       .pipe(
         tap((programs: any) => {
           programs.forEach(program => {
-            program.description = 'This is some random description';
+            program.categories = ['This', 'is', 'some', 'random', 'description'];
+            program.organs = ['This', 'is', 'some', 'random', 'description'];
           });
         })
       )

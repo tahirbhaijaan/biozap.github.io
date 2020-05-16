@@ -13,4 +13,12 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  removeCategory(program, category) {
+    program.categories = program.categories.filter(categ => categ !== category);
+  }
+
+  removeOrgan(program, organ) {
+    program.organs = program.organs.filter(categ => categ !== organ);
+  }
 }
