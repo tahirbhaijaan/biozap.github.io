@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,13 @@ export class BackendService {
   loadPage(pageNumber) {
     return new Promise((res, rej) => {
       this.http.get(`${this.adminUrl}/programs/${pageNumber}`)
+      .pipe(
+        tap((programs: any) => {
+          programs.forEach(program => {
+            program.description = 'This is some random description';
+          });
+        })
+      )
       .subscribe(res, rej);
     });
   }

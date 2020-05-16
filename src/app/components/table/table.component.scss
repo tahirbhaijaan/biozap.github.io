@@ -1,6 +1,6 @@
 $themeColor: var(--theme-color);
 .container {
-    background: linear-gradient(to right bottom, red, black);
+    background: linear-gradient(to right bottom, black, $themeColor);
     overflow: scroll;
     padding: 2rem;
     @media (max-width: 600px) {
@@ -13,6 +13,26 @@ $themeColor: var(--theme-color);
         width: 100%;
         border-collapse: collapse;
         tr {
+            width: 100%;
+            .serial {
+                width: 4%;
+            }
+            .name {
+                width: 20%;
+            }
+            .description {
+                width: 30%;
+                padding: .4rem;
+                textarea {
+                    width: 100%;
+                }
+            }
+            .category {
+                width: 28%;
+            }
+            .organ {
+                width: 28%;
+            }
             background-color: black;
             border: 1px solid $themeColor;
             th {

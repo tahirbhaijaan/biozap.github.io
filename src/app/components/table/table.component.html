@@ -8,11 +8,12 @@
             <th>Organs</th>
         </tr>
         <tr *ngFor="let program of programs">
-            <td>{{program.index}}</td>
-            <td>{{program.name}}</td>
-            <td>{{program.description}}</td>
-            <td>{{program.categories}}</td>
-            <td>{{program.organs}}</td>
+            <td class="serial">{{program.index}}</td>
+            <td class="name">{{program.name}}</td>
+            <td class="description">
+                <textarea [(ngModel)]="program.description" cols="30" rows="4"></textarea></td>
+            <td class="category">{{program.categories}}</td>
+            <td class="organ">{{program.organs}}</td>
         </tr>
     </table>
 </div>
