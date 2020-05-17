@@ -10,6 +10,8 @@ export class BackendService {
 
   adminUrl = 'http://localhost:3000/admin';
   adminToken = '';
+  categories = [];
+  categoryUpdated = new BehaviorSubject([]);
 
   constructor(
     private http: HttpClient
@@ -33,12 +35,21 @@ export class BackendService {
 
   getCategories() {
     return new Promise((res, rej) => {
-      this.http.get(`${this.adminUrl}/categories`).subscribe(res, rej);
+      if (this.categories.length) {
+        return res(this.categories);
+      }
+      this.http.get(`${this.adminUrl}/categories`).subscribe((cats: any) => {
+        this.categories = cats;
+        res(cats);
+      }, rej);
     });
   }
 
   saveCategory(category) {
     return new Promise((res, rej) => {
+      this.categories = this.categories.filter(cat => category !== cat);
+      this.categories.push(category);
+      this.categoryUpdated.next(this.categories);
       this.http.post(`${this.adminUrl}/categories`, {
         category
       }).subscribe(res, rej);
@@ -55,14 +66,6 @@ export class BackendService {
   loadPage(pageNumber) {
     return new Promise((res, rej) => {
       this.http.get(`${this.adminUrl}/programs/${pageNumber}`)
-      .pipe(
-        tap((programs: any) => {
-          programs.forEach(program => {
-            program.categories = ['This', 'is', 'some', 'random', 'description'];
-            program.organs = ['This', 'is', 'some', 'random', 'description'];
-          });
-        })
-      )
       .subscribe(res, rej);
     });
   }

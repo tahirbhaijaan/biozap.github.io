@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-table',
@@ -8,10 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TableComponent implements OnInit {
 
   @Input() programs = [];
-  constructor() {
+  addCateg = false;
+  catPanelOptions;
+  loading = true;
+
+  editingIndex = 0;
+  constructor(
+    private backend: BackendService
+  ) {
   }
 
   ngOnInit() {
+
   }
 
   removeCategory(program, category) {
@@ -20,5 +29,28 @@ export class TableComponent implements OnInit {
 
   removeOrgan(program, organ) {
     program.organs = program.organs.filter(categ => categ !== organ);
+  }
+
+  async showCatAddPanel(program) {
+    this.editingIndex = program.index - this.programs[0].index;
+    this.loading = true;
+    const programCategs = program.categories;
+    const categories = (await this.backend.getCategories() as any).filter(category => {
+      return category.split(':')[0] !== 'organ';
+    });
+    this.catPanelOptions = [];
+    categories.forEach(category => {
+      this.catPanelOptions.push({
+        value: category,
+        selected: programCategs.indexOf(category) >= 0
+      });
+    });
+    this.loading = false;
+    this.addCateg = true;
+  }
+
+  setCategory(categs) {
+    this.addCateg = false;
+    this.programs[this.editingIndex].categories = categs;
   }
 }

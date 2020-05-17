@@ -29,9 +29,11 @@ export class DashboardComponent implements OnInit {
   }
 
   loadPage(tab) {
+    this.loading = true;
     this.backend.loadPage(tab)
     .then((content: any) => {
       this.programs = content;
+      this.loading = false;
     })
     .catch(error => {
       console.log({

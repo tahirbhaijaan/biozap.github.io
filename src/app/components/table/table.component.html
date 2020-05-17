@@ -14,7 +14,7 @@
                 <textarea [(ngModel)]="program.description" cols="30" rows="4"></textarea></td>
             <td class="category">
                 <app-chip-set [chips]="program.categories" (chipDelete)="removeCategory(program, $event)"></app-chip-set>
-                <a class="addNew">add +</a>
+                <a class="addNew" (click)="showCatAddPanel(program)">add +</a>
             </td>
             <td class="organ">
                 <app-chip-set [chips]="program.organs" (chipDelete)="removeOrgan(program, $event)"></app-chip-set>
@@ -22,4 +22,6 @@
             </td>
         </tr>
     </table>
+    <app-select (selected)="setCategory($event)" [options]="catPanelOptions" *ngIf="addCateg"></app-select>
+    <app-loader *ngIf="loading"></app-loader>
 </div>

@@ -1,1 +1,14 @@
-<div class="full content-centered dark-overlay"></div>
+<div class="full top left fixed content-centered dark-overlay">
+    <div class="content">
+        <div class="header">{{heading}}</div>
+        <div class="options">
+            <div class="option" *ngFor="let option of options" (click)="option.selected = !option.selected">
+                <div class="select round">
+                    <div class="bulb round" [class.selected]="option.selected" ></div>
+                </div>
+                <div class="name">{{option.value}}</div>
+            </div>
+        </div>
+        <div class="control"><a (click)="submit()">Submit</a></div>
+    </div>
+</div>

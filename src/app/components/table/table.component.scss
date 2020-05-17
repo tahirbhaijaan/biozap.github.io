@@ -18,6 +18,11 @@ $themeColor: var(--theme-color);
                 color: white;
                 border-radius: .4rem;
                 cursor: pointer;
+                display: block;
+                text-align: center;
+                &:hover {                    
+                    background-color: rgb(212, 74, 0);
+                }
                 &:active {
                     background-color: white;
                     color: $themeColor;
@@ -35,6 +40,15 @@ $themeColor: var(--theme-color);
                 padding: .4rem;
                 textarea {
                     width: 100%;
+                    padding: .4rem;
+                    background-color: transparent;
+                    border: 2px solid rgb(255, 143, 143);
+                    border-radius: .4rem;
+                    color: white;
+                    &:focus {
+                        border: 2px solid $themeColor;
+                        outline: none;
+                    }
                 }
             }
             .category {
