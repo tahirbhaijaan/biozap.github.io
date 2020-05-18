@@ -30,6 +30,9 @@ export class MenuComponent implements OnInit {
       });
       this.loading = false;
     });
+    this.backend.categoryUpdated.subscribe(newCategories => {
+      this.categories = newCategories;
+    });
   }
 
   addNew() {
@@ -37,10 +40,9 @@ export class MenuComponent implements OnInit {
     if (!this.catName.length) {
       return;
     }
-    this.backend.saveCategory(this.catName)
+    this.backend.saveCategory(this.catName.trim().toLowerCase())
     .then(() => {
       this.loading = false;
-      this.categories.push(this.catName.trim().toLowerCase());
       this.catName = '';
     })
     .catch(error => {
@@ -50,4 +52,16 @@ export class MenuComponent implements OnInit {
       this.loading = false;
     });
   }
+
+  async deleteCategory(category) {
+    this.loading = true;
+    this.backend.removeCategory(category)
+    .then(success => {
+      this.loading = false;
+    })
+    .catch(error => {
+      this.loading = false;
+    });
+  }
+
 }

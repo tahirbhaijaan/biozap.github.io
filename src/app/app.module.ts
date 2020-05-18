@@ -15,6 +15,7 @@ import { CutComponent } from './components/cut/cut.component';
 import { TableComponent } from './components/table/table.component';
 import { ChipSetComponent } from './components/chip-set/chip-set.component';
 import { SelectComponent } from './components/select/select.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SelectComponent } from './components/select/select.component';
     CutComponent,
     TableComponent,
     ChipSetComponent,
-    SelectComponent
+    SelectComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

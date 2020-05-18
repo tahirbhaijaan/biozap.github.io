@@ -14,7 +14,7 @@
                 <span></span>
             </div>
             <div *ngFor="let category of categories" class="device">
-                <div class="name">{{ category }}</div>
+                <div class="name">{{ category }}<div (click)="deleteCategory(category)">x</div></div>
             </div>
         </div>
     </div>

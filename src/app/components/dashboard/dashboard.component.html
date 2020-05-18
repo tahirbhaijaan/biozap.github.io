@@ -1,6 +1,6 @@
 <div class="full top left fixed">
     <app-menu [menuLeft]="addNew"></app-menu>
-    <div class="grid full" >
+        <div class="grid full" >
         <div class="table" [ngStyle]="{'height': collapsed ? '100%' : '84%'}">
             <app-table [programs]="programs"></app-table>
         </div>
@@ -17,4 +17,8 @@
     </div>
     <app-loader [loading]="loading" ></app-loader>
     <app-add-new (closed)="addNew = false" *ngIf="addNew"></app-add-new>
+    <div class="search-button absolute right round content-centered" *ngIf="!search" (click)="search=true">
+        <img src="./../../../assets/icon/search.png">
+    </div>
+    <app-search *ngIf="search"></app-search>
 </div>

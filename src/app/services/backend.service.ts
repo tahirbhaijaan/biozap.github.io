@@ -56,6 +56,16 @@ export class BackendService {
     });
   }
 
+  removeCategory(category) {
+    return new Promise((res, rej) => {
+      this.categories = this.categories.filter(cat => category !== cat);
+      this.categoryUpdated.next(this.categories);
+      this.http.post(`${this.adminUrl}/deleteCategory`, {
+        category
+      }).subscribe(res, rej);
+    });
+  }
+
   tabLength() {
     return new Promise((res, rej) => {
       this.http.get(`${this.adminUrl}/tabs`)

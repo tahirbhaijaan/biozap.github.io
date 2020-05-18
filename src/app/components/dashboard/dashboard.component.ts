@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   collapsed = false;
   collapser;
   programs = [];
+  search = false;
   constructor(
     private backend: BackendService
   ) { }
