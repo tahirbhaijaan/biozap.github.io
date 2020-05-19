@@ -7,7 +7,7 @@
 
 :root {
     --theme-color: rgb(245, 88, 88);
-    --theme-secondary-color: rgb(182, 85, 85);
+    --theme-secondary-color: rgb(255, 171, 60);
     // --theme-color: rgb(255, 0, 55);
 }
 
@@ -89,12 +89,12 @@
 
 .cell {
     position: relative;
-    border: 2px solid var(--theme-color);
+    border: 2px solid var(--theme-secondary-color);
     display: block;
     .header {
         padding: .4rem;
         width: 100%;
-        background-color: var(--theme-color);
+        background-color: var(--theme-secondary-color);
         color: white;
         display: flex;
         justify-content: center;
@@ -193,4 +193,8 @@ input {
         background-color: white;
         color: var(--theme-color);
     }
+}
+
+.darker-overlay {
+    background-color: rgba(#000, .7);
 }

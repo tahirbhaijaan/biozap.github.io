@@ -6,6 +6,36 @@ $themeColor: var(--theme-color);
     transition: .4s;
 }
 .container {
-    padding: 6rem 8rem;
+    padding: 4rem 8rem;
+    @media(max-width: 1000px) {
+        padding: 4rem 5rem;
+
+    }
+    @media(max-width: 700px) {
+        padding: 4rem 3rem;
+
+    }
+    @media(max-width: 500px) {
+        padding: 4rem 0rem;
+
+    }
     overflow: scroll;
+}
+
+table {
+    width: 100%;
+    margin-bottom: .4rem;
+    background-color: var(--theme-secondary-color);
+    th, td {
+        padding: .4rem;
+    }
+    th {
+        color: white;
+        background-color: var(--theme-secondary-color);
+    }
+    td {
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
 }

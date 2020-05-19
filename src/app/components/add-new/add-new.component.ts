@@ -10,9 +10,14 @@ export class AddNewComponent implements OnInit {
 
   @Output() closed = new EventEmitter();
   categories;
+  freq = {
+    v: undefined,
+    t: undefined
+  };
   program = {
     name: '',
     description: '',
+    frequencies: [],
     categories: [],
     organs: []
   };
@@ -96,5 +101,15 @@ export class AddNewComponent implements OnInit {
   setCategories(event) {
     this.panel.cat.show = false;
     this.program.categories = event;
+  }
+  addFrequency() {
+    if (!this.freq.t || !this.freq.v ) {
+      return;
+    }
+    this.program.frequencies.push(this.freq);
+    this.freq = {
+      v: undefined,
+      t: undefined
+    };
   }
 }

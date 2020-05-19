@@ -12,10 +12,21 @@ export class BackendService {
   adminToken = '';
   categories = [];
   categoryUpdated = new BehaviorSubject([]);
+  programs = [];
+
+  allProgramsLoaded = false;
 
   constructor(
     private http: HttpClient
   ) {
+    this.loadAll()
+    .then((programs: any) => {
+      this.programs = programs;
+      this.allProgramsLoaded = true;
+    })
+    .catch(error => console.log({
+      error
+    }));
   }
 
   login(passkey) {
@@ -75,8 +86,36 @@ export class BackendService {
 
   loadPage(pageNumber) {
     return new Promise((res, rej) => {
-      this.http.get(`${this.adminUrl}/programs/${pageNumber}`)
+      if (!this.allProgramsLoaded) {
+        this.loadAll()
+        .then((programs: any) => {
+          this.programs = programs;
+          this.allProgramsLoaded = true;
+          res(this.programSegment(pageNumber));
+        })
+        .catch(error => rej(error));
+      } else {
+        res(this.programSegment(pageNumber));
+      }
+    });
+  }
+
+  loadAll() {
+    return new Promise((res, rej) => {
+      this.http.get(`${this.adminUrl}/allPrograms`)
       .subscribe(res, rej);
     });
+  }
+
+  programSegment(pageNumber) {
+    const segment = [];
+    for (let i = 100 * pageNumber; i < 100 * (pageNumber + 1); i++) {
+      if (i === this.programs.length) {
+        return segment;
+      }
+      segment.push(this.programs[i]);
+    }
+    console.log({segment});
+    return segment;
   }
 }
