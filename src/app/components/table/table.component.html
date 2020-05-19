@@ -18,10 +18,11 @@
             </td>
             <td class="organ">
                 <app-chip-set [chips]="program.organs" (chipDelete)="removeOrgan(program, $event)"></app-chip-set>
-                <a class="addNew">add +</a>
+                <a class="addNew"  (click)="showOrgAddPanel(program)">add +</a>
             </td>
         </tr>
     </table>
     <app-select (selected)="setCategory($event)" [options]="catPanelOptions" *ngIf="addCateg"></app-select>
+    <app-select (selected)="setOrgans($event)" [options]="orgPanelOptions" *ngIf="addOrgan"></app-select>
     <app-loader *ngIf="loading"></app-loader>
 </div>

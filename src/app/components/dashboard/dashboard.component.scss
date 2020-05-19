@@ -25,12 +25,13 @@ $themeColor: var(--theme-color);
         height: 8%;
         display: flex;
         a {
+            transition: .4s ease-in-out;
             background-color: black;
             color: $themeColor;
             cursor: pointer;
             &:hover {
-                box-shadow: inset 0 0 4rem rgba($themeColor, .6);
-                text-shadow: 0 0 1rem rgba($themeColor, .6);
+                background-color: $themeColor;
+                color: black;
             }
             &:active {
                 background-color: $themeColor;

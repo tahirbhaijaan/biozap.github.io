@@ -17,7 +17,7 @@
     </div>
     <app-loader [loading]="loading" ></app-loader>
     <app-add-new (closed)="addNew = false" *ngIf="addNew"></app-add-new>
-    <div class="search-button absolute right round content-centered" *ngIf="!search" (click)="search=true">
+    <div class="search-button absolute right round content-centered" *ngIf="!search && !addNew" (click)="search=true">
         <img src="./../../../assets/icon/search.png">
     </div>
     <app-search *ngIf="search"></app-search>

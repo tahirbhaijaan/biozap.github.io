@@ -10,7 +10,9 @@ export class TableComponent implements OnInit {
 
   @Input() programs = [];
   addCateg = false;
+  addOrgan = false;
   catPanelOptions;
+  orgPanelOptions;
   loading = true;
 
   editingIndex = 0;
@@ -49,8 +51,30 @@ export class TableComponent implements OnInit {
     this.addCateg = true;
   }
 
+  async showOrgAddPanel(program) {
+    this.editingIndex = program.index - this.programs[0].index;
+    this.loading = true;
+    const programOrgans = program.organs;
+    const organs = (await this.backend.getCategories() as any).filter(organ => {
+      return organ.split(':')[0] === 'organ';
+    });
+    this.orgPanelOptions = [];
+    organs.forEach(organ => {
+      this.orgPanelOptions.push({
+        value: organ.split(':')[1],
+        selected: programOrgans.indexOf(organ) >= 0
+      });
+    });
+    this.loading = false;
+    this.addOrgan = true;
+  }
+
   setCategory(categs) {
     this.addCateg = false;
     this.programs[this.editingIndex].categories = categs;
+  }
+  setOrgans(organs) {
+    this.addOrgan = false;
+    this.programs[this.editingIndex].organs = organs;
   }
 }
