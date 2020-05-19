@@ -7,6 +7,7 @@
 
 :root {
     --theme-color: rgb(245, 88, 88);
+    --theme-secondary-color: rgb(182, 85, 85);
     // --theme-color: rgb(255, 0, 55);
 }
 
@@ -98,6 +99,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        &--secondary {
+            background-color: var(--theme-secondary-color);
+        }
     }
     .content {
         background-color: rgba(#000, .8);
