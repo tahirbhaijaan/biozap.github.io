@@ -8,7 +8,7 @@ import { BackendService } from './services/backend.service';
 })
 export class AppComponent {
   title = 'Biozap-web';
-  authorized = false;
+  authorized = true;
   constructor(
     private backend: BackendService
   ) {

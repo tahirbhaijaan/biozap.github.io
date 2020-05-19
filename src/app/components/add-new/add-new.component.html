@@ -1,5 +1,46 @@
-<div class="full fixed top left dark-overlay">
+<div class="container full fixed top left dark-overlay">
     <div class="cut round right--padding top--padding fixed">
         <app-cut (closed)="closed.emit()"></app-cut>
     </div>
+    <div class="cell">
+        <div class="header">* Marked fields are mendatory</div>
+        <div class="content">
+            <div class="flex-row">
+                <div class="box box--half margin--small">
+                    <div class="cell margin--small">
+                        <div class="header">Name*</div>
+                        <div class="content">
+                            <input type="text">
+                        </div>
+                    </div>
+                    
+                    <div class="cell margin--small">
+                        <div class="header">Description</div>
+                        <div class="content">
+                            <textarea cols="10" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box--half margin--small">
+                    <div class="cell margin--small">
+                        <div class="header">Categories</div>
+                        <div class="content padding--small">
+                            <app-chip-set [chips]="program.categories" (chipDelete)="removeCategory($event)"></app-chip-set>
+                            <a class="addNew" (click)="showCatPanel()">add +</a>
+                        </div>
+                    </div>
+                    <div class="cell margin--small">
+                        <div class="header">Organs</div>
+                        <div class="content padding--small">
+                            <app-chip-set [chips]="program.organs" (chipDelete)="removeOrgan($event)"></app-chip-set>
+                            <a class="addNew" (click)="showOrgPanel()">add +</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-select (selected)="setOrgans($event)" [options]="panel.org.options" *ngIf="panel.org.show"></app-select>
+    <app-select (selected)="setCategories($event)" [options]="panel.cat.options" *ngIf="panel.cat.show"></app-select>
+    <app-loader *ngIf="loading"></app-loader>
 </div>

@@ -5,3 +5,7 @@ $themeColor: var(--theme-color);
     cursor: pointer;
     transition: .4s;
 }
+.container {
+    padding: 6rem 8rem;
+    overflow: scroll;
+}

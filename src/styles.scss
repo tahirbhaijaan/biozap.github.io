@@ -85,3 +85,108 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.cell {
+    position: relative;
+    border: 2px solid var(--theme-color);
+    display: block;
+    .header {
+        padding: .4rem;
+        width: 100%;
+        background-color: var(--theme-color);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content {
+        background-color: rgba(#000, .8);
+        width: 100%;
+    }
+}
+
+.flex-row {
+    display: flex;
+}
+.box {
+    position: relative;
+    width: 100%;
+    &--half {
+        width: 50%;
+    }
+    &--one-third {
+        width: 33.33%;
+    }
+    &--two-third {
+        width: 66.67%;
+    }
+}
+
+.test-box {
+    border: 2px solid black;
+    background-color: red;
+    padding: 2rem;
+}
+
+.padding {
+    &--small {
+        padding: .4rem;
+    }
+    &--medium {
+        padding: 1rem;
+    }
+    &--large {
+        padding: 4rem;
+    }
+}
+.margin {
+    &--small {
+        margin: .4rem;
+    }
+    &--medium {
+        margin: 1rem;
+    }
+    &--large {
+        margin: 4rem;
+    }
+}
+textarea {
+    width: 100%;
+    padding: .4rem;
+    background-color: transparent;
+    border: 2px solid rgb(255, 143, 143);
+    color: white;
+    &:focus {
+        border: 2px solid var(--theme-color);
+        outline: none;
+    }
+}
+input {
+    width: 100%;
+    padding: .4rem;
+    background-color: transparent;
+    border: 2px solid rgb(255, 143, 143);
+    color: white;
+    text-align: center;
+    &:focus {
+        border: 2px solid var(--theme-color);
+        outline: none;
+    }
+}
+
+.addNew {
+    padding: .4rem;
+    background-color: rgb(255, 136, 0);
+    color: white;
+    border-radius: .4rem;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    &:hover {                    
+        background-color: rgb(212, 74, 0);
+    }
+    &:active {
+        background-color: white;
+        color: var(--theme-color);
+    }
+}
