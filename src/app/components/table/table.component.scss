@@ -1,5 +1,6 @@
 $themeColor: var(--theme-color);
 .container {
+    position: relative;
     background: linear-gradient(to right bottom, black, $themeColor);
     overflow: scroll;
     padding: 2rem;

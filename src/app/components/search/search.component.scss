@@ -2,45 +2,57 @@ $themeColor: var(--theme-color);
 $themeSecondary: var(--theme-secondary-color);
 .container {
     padding: 2rem;
-    .content{
-        display: block;
-        .search-bar {
-            width: 100%;
+    position: absolute;
+    display: block;
+    .search-bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input {
+            width: 50%;
+            color: $themeColor;
+            background-color: black;
+            text-align: left;
+            padding-left: 2rem;
+            @media(max-width: 700px) {
+                width: 60%;
+            }
+            @media(max-width: 600px) {
+                width: 70%;
+            }
+            @media(max-width: 500px) {
+                width: 90%;
+            }
+        }
+        .select-option {
+            transform: translateX(-100%);
+            border-left: 2px solid rgb(255, 143, 143);
+            background-color: rgba(#fff, .1);
             display: flex;
             justify-content: center;
             align-items: center;
-            input {
-                width: 50%;
+            padding-right: .4rem;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(255, 143, 143, .4);
+            }
+            .txt {
                 color: $themeColor;
-                background-color: black;
-                text-align: left;
-                padding-left: 2rem;
+                padding: .4rem;
             }
-            .select-option {
-                transform: translateX(-100%);
-                border-left: 2px solid rgb(255, 143, 143);
-                background-color: rgba(#fff, .1);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding-right: .4rem;
-                cursor: pointer;
-                &:hover {
-                    background-color: rgb(255, 143, 143, .4);
-                }
-                .txt {
-                    color: $themeColor;
-                    padding: .4rem;
-                }
-                .x {
-                    padding: 0;
-                    height: .8rem;
-                    width: .8rem;
-                    background-color: $themeColor;
-                    clip-path: polygon(0 0, 50% 20%, 100% 0, 50% 100%);
-                }
-                
+            .x {
+                padding: 0;
+                height: .8rem;
+                width: .8rem;
+                background-color: $themeColor;
+                clip-path: polygon(0 0, 50% 20%, 100% 0, 50% 100%);
             }
+            
         }
     }
+    .content {
+        position: relative;
+    }
+    
 }

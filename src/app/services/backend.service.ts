@@ -20,13 +20,13 @@ export class BackendService {
     private http: HttpClient
   ) {
     this.loadAll()
-    .then((programs: any) => {
-      this.programs = programs;
-      this.allProgramsLoaded = true;
-    })
-    .catch(error => console.log({
-      error
-    }));
+      .then((programs: any) => {
+        this.programs = programs;
+        this.allProgramsLoaded = true;
+      })
+      .catch(error => console.log({
+        error
+      }));
   }
 
   login(passkey) {
@@ -80,7 +80,7 @@ export class BackendService {
   tabLength() {
     return new Promise((res, rej) => {
       this.http.get(`${this.adminUrl}/tabs`)
-      .subscribe(res, rej);
+        .subscribe(res, rej);
     });
   }
 
@@ -88,12 +88,12 @@ export class BackendService {
     return new Promise((res, rej) => {
       if (!this.allProgramsLoaded) {
         this.loadAll()
-        .then((programs: any) => {
-          this.programs = programs;
-          this.allProgramsLoaded = true;
-          res(this.programSegment(pageNumber));
-        })
-        .catch(error => rej(error));
+          .then((programs: any) => {
+            this.programs = programs;
+            this.allProgramsLoaded = true;
+            res(this.programSegment(pageNumber));
+          })
+          .catch(error => rej(error));
       } else {
         res(this.programSegment(pageNumber));
       }
@@ -103,7 +103,7 @@ export class BackendService {
   loadAll() {
     return new Promise((res, rej) => {
       this.http.get(`${this.adminUrl}/allPrograms`)
-      .subscribe(res, rej);
+        .subscribe(res, rej);
     });
   }
 
@@ -115,7 +115,22 @@ export class BackendService {
       }
       segment.push(this.programs[i]);
     }
-    console.log({segment});
+    console.log({ segment });
     return segment;
+  }
+
+  filterList(searchValue, key) {
+    switch (key) {
+      case 'All':  return this.programSegment(0);
+                   break;
+      case 'Name': return this.programSegment(1) ;
+                   break;
+      case 'Description': return this.programSegment(2) ;
+                          break;
+      case 'Categoy': return this.programSegment(3) ;
+                      break;
+      case 'Organs': return this.programSegment(4) ;
+                     break;
+    }
   }
 }

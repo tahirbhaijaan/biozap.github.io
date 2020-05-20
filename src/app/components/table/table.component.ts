@@ -9,6 +9,7 @@ import { BackendService } from 'src/app/services/backend.service';
 export class TableComponent implements OnInit {
 
   @Input() programs = [];
+  @Input() padding = '2rem';
   addCateg = false;
   addOrgan = false;
   catPanelOptions;

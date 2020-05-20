@@ -1,12 +1,16 @@
 <div class="container full absolute top left darker-overlay padding--medium">
-    <div class="content full">
-        <div class="search-bar">
-            <input (keyup)="log($event.value)" type="text">
-            <div class="select-option" (click)="configureOptions()">
-                <div class="txt">{{selectedSearchOption}}</div>
-                <div class="x"></div>
+       
+            <div class="search-bar">
+                <input  #searchInput type="text" placeholder="search here">
+                <div class="select-option" (click)="configureOptions()">
+                    <div class="txt">{{selectedSearchOption}}</div>
+                    <div class="x"></div>
+                </div>
             </div>
-        </div>
-    </div>
+            <div class="content">
+                <div class="table">
+                    <app-table [programs]="programs" padding="0"></app-table>
+                </div>
+            </div>
 </div>
 <app-select [options]="configuredOptions" mode="single" *ngIf="chooseSearchOption" (selected)="setSearchOption($event)"></app-select>
