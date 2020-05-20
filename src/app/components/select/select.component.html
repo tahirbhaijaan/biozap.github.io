@@ -3,7 +3,7 @@
         <div class="header">{{heading}}</div>
         <div class="content-centered full no-options" *ngIf="!options.length">No options available</div>
         <div class="options">
-            <div class="option" *ngFor="let option of options" (click)="option.selected = !option.selected">
+            <div class="option" *ngFor="let option of options" (click)="toggle(option)">
                 <div class="select round">
                     <div class="bulb round" [class.selected]="option.selected" ></div>
                 </div>

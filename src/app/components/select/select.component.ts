@@ -11,6 +11,7 @@ export class SelectComponent implements OnInit, OnChanges {
   @Input() heading = 'Select Options';
   @Input() options = [];
   @Output() selected = new EventEmitter();
+  @Input() mode = 'multiple';
   constructor() { }
 
   ngOnInit() {
@@ -30,4 +31,14 @@ export class SelectComponent implements OnInit, OnChanges {
     this.selected.emit(response);
   }
 
+  toggle(option) {
+    if (this.mode === 'multiple') {
+      return option.selected = !option.selected;
+    } else {
+      this.options = this.options.filter(opt => {
+        opt.selected = opt.value === option.value;
+        return true;
+      });
+    }
+  }
 }

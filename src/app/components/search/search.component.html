@@ -1,1 +1,12 @@
-<div class="content full absolute top left dark-overlay"></div>
+<div class="container full absolute top left darker-overlay padding--medium">
+    <div class="content full">
+        <div class="search-bar">
+            <input (keyup)="log($event.value)" type="text">
+            <div class="select-option" (click)="configureOptions()">
+                <div class="txt">{{selectedSearchOption}}</div>
+                <div class="x"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-select [options]="configuredOptions" mode="single" *ngIf="chooseSearchOption" (selected)="setSearchOption($event)"></app-select>
