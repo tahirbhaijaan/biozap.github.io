@@ -1,4 +1,5 @@
 $themeColor: var(--theme-color);
+$themeSecondaryColor: var(--theme-secondary-color);
 .cut {
     width: 2rem;
     height: 2rem;
@@ -23,19 +24,52 @@ $themeColor: var(--theme-color);
 }
 
 table {
+    position: relative;
     width: 100%;
     margin-bottom: .4rem;
-    background-color: var(--theme-secondary-color);
+    background-color: $themeSecondaryColor;
     th, td {
         padding: .4rem;
     }
     th {
         color: white;
-        background-color: var(--theme-secondary-color);
+        background-color: $themeSecondaryColor;
     }
-    td {
-        text-align: center;
-        color: white;
-        background-color: black;
+    tr {
+        &:hover {
+            td {
+                .delete {
+                    transform: translateX(0);
+                }
+            }
+        }
+        td {
+            position: relative;
+            text-align: center;
+            color: white;
+            background-color: black;
+            overflow: hidden;
+            .delete {
+                cursor: pointer;
+                transition: .4s;
+                height: 2rem;
+                width: 2rem;
+                background-color: $themeSecondaryColor;
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateX(100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover {
+                    background-color: black;
+                }
+                img {
+                    width: 70%;
+                    height: 70%;
+                }
+            }
+        }
     }
 }

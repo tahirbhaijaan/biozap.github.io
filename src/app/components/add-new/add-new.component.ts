@@ -112,4 +112,8 @@ export class AddNewComponent implements OnInit {
       t: undefined
     };
   }
+
+  deleteFrequency(index) {
+    this.program.frequencies.splice(index, 1);
+  }
 }
