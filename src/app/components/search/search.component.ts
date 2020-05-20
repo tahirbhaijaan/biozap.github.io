@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { of, fromEvent } from 'rxjs';
 import {
   debounceTime,
@@ -14,14 +14,17 @@ import { BackendService } from './../../services/backend.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchOptions = ['All', 'Name', 'Description', 'Categoy', 'Organs'];
+  @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
+  @Output() Close = new EventEmitter();
+
+  searchOptions = ['All', 'Name', 'Description', 'Category', 'Organs'];
   configuredOptions = [];
   selectedSearchOption = 'Name';
   chooseSearchOption = false;
-  programs;
-  @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
+  programs = [];
+  loading = false;
 
-
+  programsToDisplay = [];
   constructor(
     private backend: BackendService
   ) { }
@@ -57,6 +60,20 @@ export class SearchComponent implements OnInit {
   }
 
   search(value) {
+    this.loading = true;
     this.programs = this.backend.filterList(value, this.selectedSearchOption);
+    console.log({
+      programs: this.programs
+    });
+    this.programsToDisplay = [];
+    this.nextSegment();
+    this.loading = false;
+  }
+
+  nextSegment() {
+    this.programsToDisplay = [
+      ...this.programsToDisplay,
+      ...this.programs.splice(0, 10)
+    ];
   }
 }

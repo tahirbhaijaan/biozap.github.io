@@ -120,17 +120,51 @@ export class BackendService {
   }
 
   filterList(searchValue, key) {
+    searchValue = searchValue.toUpperCase();
+    let result = [];
     switch (key) {
-      case 'All':  return this.programSegment(0);
+      case 'All':  result = this.programs.filter(program => {
+        return program.name.toUpperCase().includes(searchValue) ||
+               program.description.toUpperCase().includes(searchValue) ||
+               this.filterByCateory(program, searchValue) ||
+               this.filterByOrgan(program, searchValue);
+      });
                    break;
-      case 'Name': return this.programSegment(1) ;
+      case 'Name': result = this.programs.filter(program => {
+                      return program.name.toUpperCase().includes(searchValue);
+                    });
                    break;
-      case 'Description': return this.programSegment(2) ;
+      case 'Description': result = this.programs.filter(program => program.description.toUpperCase().includes(searchValue));
                           break;
-      case 'Categoy': return this.programSegment(3) ;
-                      break;
-      case 'Organs': return this.programSegment(4) ;
+      case 'Category': result = this.programs.filter(program => this.filterByCateory(program, searchValue));
+                       break;
+      case 'Organs': result = this.programs.filter(program => this.filterByOrgan(program, searchValue)) ;
                      break;
     }
+    return result;
+  }
+
+  filterByCateory(program, key) {
+    key = key.toUpperCase();
+    let ifFound = false;
+    for (const category of program.categories ) {
+      if (category.toUpperCase().includes(key)) {
+        ifFound = true;
+        break;
+      }
+    }
+    return ifFound;
+  }
+
+  filterByOrgan(program, key) {
+    key = key.toUpperCase();
+    let ifFound = false;
+    for (const organ of program.organs ) {
+      if (organ.toUpperCase().includes(key)) {
+        ifFound = true;
+        break;
+      }
+    }
+    return ifFound;
   }
 }

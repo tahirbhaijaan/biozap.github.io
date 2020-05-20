@@ -20,5 +20,5 @@
     <div class="search-button absolute right round content-centered" *ngIf="!search && !addNew" (click)="search=true">
         <img src="./../../../assets/icon/search.png">
     </div>
-    <app-search *ngIf="search"></app-search>
+    <app-search *ngIf="search" (Close)="search = false"></app-search>
 </div>
