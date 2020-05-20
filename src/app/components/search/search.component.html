@@ -7,6 +7,7 @@
         </div>
     </div>
     <div class="content full">
+        <div *ngIf="notingFound" class="notingFound absolute full content-centered">No Program Found</div>
         <div class="spn" *ngIf="loading">
             <span></span>
             <span></span>
@@ -16,6 +17,16 @@
         </div>
         <div class="table">
             <app-table [programs]="programsToDisplay" *ngIf="programsToDisplay.length" padding="0"></app-table>
+            <div class="loadMore" (click)="nextSegment()" *ngIf="programsToDisplay.length > 0 && programs.length > 0">
+                <div *ngIf="!loadingMore">Load More ...</div>
+                <div class="spn" *ngIf="loadingMore">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

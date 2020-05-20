@@ -1,26 +1,30 @@
 <div class="container absolute full left top" [ngStyle]="{'padding': padding}">
     <table>
-        <tr>
-            <th>S.No.</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Categories</th>
-            <th>Organs</th>
-        </tr>
-        <tr *ngFor="let program of programs">
-            <td class="serial">{{program.index}}</td>
-            <td class="name">{{program.name}}</td>
-            <td class="description">
-                <textarea [(ngModel)]="program.description" cols="30" rows="4"></textarea></td>
-            <td class="category">
-                <app-chip-set [chips]="program.categories" (chipDelete)="removeCategory(program, $event)"></app-chip-set>
-                <a class="addNew" (click)="showCatAddPanel(program)">add +</a>
-            </td>
-            <td class="organ">
-                <app-chip-set [chips]="program.organs" (chipDelete)="removeOrgan(program, $event)"></app-chip-set>
-                <a class="addNew"  (click)="showOrgAddPanel(program)">add +</a>
-            </td>
-        </tr>
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Categories</th>
+                <th>Organs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let program of programs">
+                <td class="serial">{{program.index}}</td>
+                <td class="name">{{program.name}}</td>
+                <td class="description">
+                    <textarea [(ngModel)]="program.description" cols="30" rows="4"></textarea></td>
+                <td class="category">
+                    <app-chip-set [chips]="program.categories" (chipDelete)="removeCategory(program, $event)"></app-chip-set>
+                    <a class="addNew" (click)="showCatAddPanel(program)">add +</a>
+                </td>
+                <td class="organ">
+                    <app-chip-set [chips]="program.organs" (chipDelete)="removeOrgan(program, $event)"></app-chip-set>
+                    <a class="addNew"  (click)="showOrgAddPanel(program)">add +</a>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <app-select (selected)="setCategory($event)" [options]="catPanelOptions" *ngIf="addCateg"></app-select>
     <app-select (selected)="setOrgans($event)" [options]="orgPanelOptions" *ngIf="addOrgan"></app-select>

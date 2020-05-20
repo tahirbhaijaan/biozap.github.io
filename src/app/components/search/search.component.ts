@@ -17,12 +17,14 @@ export class SearchComponent implements OnInit {
   @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
   @Output() Close = new EventEmitter();
 
+  loadingMore = false;
   searchOptions = ['All', 'Name', 'Description', 'Category', 'Organs'];
   configuredOptions = [];
   selectedSearchOption = 'Name';
   chooseSearchOption = false;
   programs = [];
   loading = false;
+  notingFound = false;
 
   programsToDisplay = [];
   constructor(
@@ -61,19 +63,28 @@ export class SearchComponent implements OnInit {
 
   search(value) {
     this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
     this.programs = this.backend.filterList(value, this.selectedSearchOption);
     console.log({
       programs: this.programs
     });
+    if (!this.programs.length) {
+      this.notingFound = true;
+    }
     this.programsToDisplay = [];
     this.nextSegment();
-    this.loading = false;
   }
 
   nextSegment() {
-    this.programsToDisplay = [
-      ...this.programsToDisplay,
-      ...this.programs.splice(0, 10)
-    ];
+    this.loadingMore = true;
+    setTimeout(() => {
+      this.programsToDisplay = [
+        ...this.programsToDisplay,
+        ...this.programs.splice(0, 10)
+      ];
+      this.loadingMore = false;
+    }, 2000);
   }
 }

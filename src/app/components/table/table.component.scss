@@ -12,6 +12,7 @@ $themeColor: var(--theme-color);
     }
     table {
         width: 100%;
+        position: relative;
         tr {
             width: 100%;
             .serial {

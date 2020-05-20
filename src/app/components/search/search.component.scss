@@ -57,6 +57,24 @@ $themeSecondary: var(--theme-secondary-color);
     .content {
         overflow: scroll;
         position: relative;
+        .notingFound {
+            color: $themeColor;
+        }
+        .loadMore {
+            transition: .4s;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .4rem;
+            background-color: black;
+            border: 1px solid $themeColor;
+            color: $themeColor;
+            &:hover {
+                background-color: white;
+            }
+        }
     }
     
 }
