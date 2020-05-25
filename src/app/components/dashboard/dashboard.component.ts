@@ -51,9 +51,9 @@ export class DashboardComponent implements OnInit {
     this.collapsed = false;
     try {
       clearInterval(this.collapser);
-      this.collapser = setInterval(() => this.collapsed = true, 3000);
+      this.collapser = setInterval(() => this.collapsed = true, 5000);
     } catch (error) {
-      this.collapser = setInterval(() => this.collapsed = true, 3000);
+      this.collapser = setInterval(() => this.collapsed = true, 5000);
     }
   }
 

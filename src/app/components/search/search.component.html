@@ -4,6 +4,7 @@
         <div class="select-option" (click)="configureOptions()">
             <div class="txt">{{selectedSearchOption}}</div>
             <div class="x"></div>
+            <div class="badge" *ngIf="totalPrograms > 0">{{totalPrograms}}</div>
         </div>
     </div>
     <div class="content full">

@@ -37,6 +37,21 @@ $themeSecondary: var(--theme-secondary-color);
             align-items: center;
             padding-right: .4rem;
             cursor: pointer;
+            .badge {
+                height: 1.8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $themeColor;
+                border: 2px solid $themeColor;
+                background-color: black;
+                border-radius: 4rem;
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translate(50%, -50%);
+                padding: .2rem;
+            }
             &:hover {
                 background-color: rgb(255, 143, 143, .4);
             }

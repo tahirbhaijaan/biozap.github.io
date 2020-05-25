@@ -20,12 +20,13 @@ export class SearchComponent implements OnInit {
   loadingMore = false;
   searchOptions = ['All', 'Name', 'Description', 'Category', 'Organs'];
   configuredOptions = [];
-  selectedSearchOption = 'Name';
+  selectedSearchOption = 'All';
   chooseSearchOption = false;
   programs = [];
   loading = false;
   notingFound = false;
 
+  totalPrograms = 0;
   programsToDisplay = [];
   constructor(
     private backend: BackendService
@@ -67,9 +68,7 @@ export class SearchComponent implements OnInit {
       this.loading = false;
     }, 1500);
     this.programs = this.backend.filterList(value, this.selectedSearchOption);
-    console.log({
-      programs: this.programs
-    });
+    this.totalPrograms = this.programs.length;
     if (!this.programs.length) {
       this.notingFound = true;
     }
